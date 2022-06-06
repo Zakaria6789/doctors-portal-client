@@ -3,6 +3,11 @@ import { toast } from 'react-toastify';
 
 const UserRow = ({ user, index, refetch }) => {
     const { name, email, role } = user;
+
+    // create capitalize name
+    const splitName = name.split(' ');
+    const capitalizeName = splitName.map(each => each.charAt(0).toUpperCase() + each.slice(1)).join(' ');
+
     const makeAdmin = () => {
         fetch(`https://stormy-coast-73546.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
@@ -27,7 +32,7 @@ const UserRow = ({ user, index, refetch }) => {
     return (
         <tr>
             <th>{index + 1}</th>
-            <td>{name}</td>
+            <td>{capitalizeName}</td>
             <td>{email}</td>
             <td>{
                 role === 'admin' ?

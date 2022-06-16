@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
 const BookingModal = ({ treatment, selected, setTreatment, refetch }) => {
-    const { _id, name, slots } = treatment;
+    const { _id, name, slots, price } = treatment;
     const [user, loading] = useAuthState(auth);
 
     if (loading) {
@@ -27,6 +27,7 @@ const BookingModal = ({ treatment, selected, setTreatment, refetch }) => {
             slotTime,
             patientName: user?.displayName,
             patientEmail,
+            price,
             patientPhone
 
         }

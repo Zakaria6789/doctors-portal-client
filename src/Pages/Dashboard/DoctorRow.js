@@ -25,7 +25,7 @@ const DoctorRow = ({ doctor, index, setDeleteDoctor }) => {
             <td>{email}</td>
             <td>{specialty}</td>
             <td>
-                <label onClick={() => setDeleteDoctor(doctor)} for="delete-confirm-modal" class="btn btn-xs btn-error">Delete</label>
+                <label onClick={() => setDeleteDoctor(doctor)} for="delete-confirm-modal" className="btn btn-xs btn-error">Delete</label>
             </td>
         </tr>
 

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading/Loading';
 
 const AddDoctor = () => {
-    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/services').then(res => res.json()));
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://stormy-coast-73546.herokuapp.com/services').then(res => res.json()));
 
     const imgStorageKey = '44c00107c3165ea55694ef31825644d3';
 
@@ -31,7 +31,7 @@ const AddDoctor = () => {
                     }
 
                     // send to my database :
-                    fetch('http://localhost:5000/doctors', {
+                    fetch('https://stormy-coast-73546.herokuapp.com/doctors', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

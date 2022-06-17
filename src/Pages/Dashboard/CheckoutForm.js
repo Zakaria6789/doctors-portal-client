@@ -12,7 +12,7 @@ const CheckoutForm = ({ booking }) => {
     const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://stormy-coast-73546.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -84,7 +84,7 @@ const CheckoutForm = ({ booking }) => {
                 transactionId: paymentIntent.id,
             }
 
-            fetch(`http://localhost:5000/booking/${_id}`, {
+            fetch(`https://stormy-coast-73546.herokuapp.com/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -122,7 +122,7 @@ const CheckoutForm = ({ booking }) => {
                         },
                     }}
                 />
-                <button className='btn btn-sm btn-secondary mt-3' type="submit" disabled={!stripe || !clientSecret}>
+                <button className='btn btn-sm btn-secondary mt-3' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
                     Pay
                 </button>
             </form>

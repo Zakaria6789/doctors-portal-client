@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51LAt1SHILP2GEsgZEeVOQs6PpD0trZtpOF8ku
 
 const Payment = () => {
     const { id } = useParams();
-    const { data: booking, isLoading } = useQuery(['booking', id], () => fetch(`http://localhost:5000/booking/${id}`, {
+    const { data: booking, isLoading } = useQuery(['booking', id], () => fetch(`https://stormy-coast-73546.herokuapp.com/booking/${id}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -22,7 +22,7 @@ const Payment = () => {
         return <Loading></Loading>
     }
 
-    const { treatmentName, price, slotDate, slotTime, patientName, patientEmail } = booking;
+    const { treatmentName, price, slotDate, slotTime, patientName } = booking;
 
     return (
 
